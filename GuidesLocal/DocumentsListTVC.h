@@ -17,6 +17,7 @@
 @property (strong, nonatomic) DocumentViewController *detailViewController;
 @property (strong, nonatomic) NSMutableArray *fileList;
 @property (nonatomic, strong) GuideDocument *selectedDocument;
+@property (weak, nonatomic) IBOutlet UINavigationItem *Title;
 
 - (IBAction)insertNewObject:(UIBarButtonItem *)sender;
 

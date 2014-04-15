@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		C056E4F818CBC8FC00C37058 /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
+		C0F5423418FCAE6B00DA6DD1 /* DocumentViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentViewControllerDelegate.h; sourceTree = "<group>"; };
 		C0FBA98118CA5FAA00BA97F3 /* GuidesLocal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuidesLocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FBA98418CA5FAA00BA97F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C0FBA98618CA5FAA00BA97F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -174,6 +175,7 @@
 		C0FBA9C618CA60CA00BA97F3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C0F5423418FCAE6B00DA6DD1 /* DocumentViewControllerDelegate.h */,
 				C0FBA9C218CA609700BA97F3 /* DocumentViewController.h */,
 				C0FBA9C318CA609700BA97F3 /* DocumentViewController.m */,
 				C0FBA9BF18CA606100BA97F3 /* DocumentsListTVC.h */,

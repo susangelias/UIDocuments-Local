@@ -373,7 +373,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSString *fileName = [self localizedNameWithoutDate:[self.fileList objectAtIndex:indexPath.row]];
+    NSURL *fileURL = [self.fileList objectAtIndex:indexPath.row];
+    NSString *fileName; //= [self localizedNameWithoutDate:[self.fileList objectAtIndex:indexPath.row]];
+    if ([fileURL isEqual:self.selectedDocument.fileURL] && (self.selectedDocument.guideTitle != nil)) {
+        // check to see if name has changed in the document View
+        fileName = self.selectedDocument.guideTitle;
+    }
+    else {
+        fileName = [self localizedNameWithoutDate:[self.fileList objectAtIndex:indexPath.row]];
+    }
     NSString *dateString = [self dateStringFromLocalizedName:[self.fileList objectAtIndex:indexPath.row]];
     
     cell.textLabel.text = [fileName copy];
@@ -577,6 +585,10 @@
     
 }
 
+-(void)listNeedsRefresh
+{
+    [self refresh];
+}
 
 
 

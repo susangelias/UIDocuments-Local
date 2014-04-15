@@ -94,6 +94,10 @@ NSString * const editDoneButtonTitleDone = @"Done";
     }
 }
 
+- (IBAction)backButtonPressed:(UIBarButtonItem *)sender {
+    
+    NSLog(@"back button pressed");
+}
 
 #pragma mark SplitViewController Delegate
 
@@ -101,8 +105,7 @@ NSString * const editDoneButtonTitleDone = @"Done";
     shouldHideViewController:(UIViewController *)vc
                inOrientation:(UIInterfaceOrientation)orientation
 {
-   // return UIInterfaceOrientationIsPortrait(orientation);
-      return NO;
+    return UIInterfaceOrientationIsPortrait(orientation);
 }
 
 - (void) splitViewController:(UISplitViewController *)sender
@@ -111,8 +114,9 @@ NSString * const editDoneButtonTitleDone = @"Done";
         forPopoverController:(UIPopoverController *)popover
 {
     
-    barButtonItem.title = master.title;
-    self.navigationItem.leftBarButtonItem = barButtonItem;
+    barButtonItem.title = @"Guides";
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.masterPopoverController = popover;
     
 }
 
@@ -121,16 +125,27 @@ NSString * const editDoneButtonTitleDone = @"Done";
    invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     self.navigationItem.leftBarButtonItem = nil;
+    self.masterPopoverController = nil;
+}
+
+-(void)splitViewController:(UISplitViewController *)svc popoverController:(UIPopoverController *)pc willPresentViewController:(UIViewController *)aViewController
+{
+    if ([self checkFileName]) {
+        [self.delegate listNeedsRefresh];
+    }
+    
+//    [self.guideTextView resignFirstResponder];
 }
 
 #pragma mark Helpers
 
 
-- (void)checkFileName
+- (BOOL)checkFileName
 {
     // check if document name needs to change
+    BOOL result = NO;
     
-    // document name is the first line of text truncated to 20 characters
+    // document name is the first line of text truncated to kTITLE_LENGTH characters
     NSArray *lines = [self.guideTextView.text  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     NSMutableString *firstLine = [[lines objectAtIndex:0]mutableCopy];   // get the first line
     if ( [firstLine length] > kTITLE_LENGTH ) {
@@ -141,7 +156,9 @@ NSString * const editDoneButtonTitleDone = @"Done";
     
     if (![firstLine isEqualToString:self.guideDocument.localizedName]) {
         self.guideDocument.guideTitle = firstLine;
+        result = YES;
     }
+    return result;
 }
 
 
@@ -152,6 +169,21 @@ NSString * const editDoneButtonTitleDone = @"Done";
     // toggle the edit/done button in the navigation bar to match state
     UIBarButtonItem *editButton = [self.navigationItem rightBarButtonItem];
     editButton.title = editDoneButtonTitleDone;
+    
+    // verify that document is open - iPad only
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (self.guideDocument.documentState & UIDocumentStateClosed) {
+            // document needs to reopen
+            NSLog(@"document is closed %lu",self.guideDocument.documentState );
+            if (self.guideDocument) {
+                [self.guideDocument openWithCompletionHandler:^(BOOL success) {
+                    if (success) {
+                        NSLog(@"document is open");
+                    }
+                }];
+            }
+        }
+    }
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView
