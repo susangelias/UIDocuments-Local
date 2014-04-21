@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C056E4F918CBC8FC00C37058 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = C056E4F818CBC8FC00C37058 /* ReadMe */; };
+		C0C7065F18FD6960007F310E /* DocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C7065E18FD6960007F310E /* DocumentViewController.m */; };
 		C0FBA98518CA5FAA00BA97F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FBA98418CA5FAA00BA97F3 /* Foundation.framework */; };
 		C0FBA98718CA5FAA00BA97F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FBA98618CA5FAA00BA97F3 /* CoreGraphics.framework */; };
 		C0FBA98918CA5FAA00BA97F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FBA98818CA5FAA00BA97F3 /* UIKit.framework */; };
@@ -23,7 +24,6 @@
 		C0FBA9B418CA5FAA00BA97F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0FBA9B218CA5FAA00BA97F3 /* InfoPlist.strings */; };
 		C0FBA9B618CA5FAA00BA97F3 /* GuidesLocalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FBA9B518CA5FAA00BA97F3 /* GuidesLocalTests.m */; };
 		C0FBA9C118CA606100BA97F3 /* DocumentsListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FBA9C018CA606100BA97F3 /* DocumentsListTVC.m */; };
-		C0FBA9C418CA609700BA97F3 /* DocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FBA9C318CA609700BA97F3 /* DocumentViewController.m */; };
 		C0FBA9CA18CA610000BA97F3 /* GuideDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FBA9C918CA610000BA97F3 /* GuideDocument.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		C056E4F818CBC8FC00C37058 /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
+		C0C7065E18FD6960007F310E /* DocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentViewController.m; sourceTree = "<group>"; };
 		C0F5423418FCAE6B00DA6DD1 /* DocumentViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentViewControllerDelegate.h; sourceTree = "<group>"; };
 		C0FBA98118CA5FAA00BA97F3 /* GuidesLocal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuidesLocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FBA98418CA5FAA00BA97F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,7 +62,6 @@
 		C0FBA9BF18CA606100BA97F3 /* DocumentsListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsListTVC.h; sourceTree = "<group>"; };
 		C0FBA9C018CA606100BA97F3 /* DocumentsListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsListTVC.m; sourceTree = "<group>"; };
 		C0FBA9C218CA609700BA97F3 /* DocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentViewController.h; sourceTree = "<group>"; };
-		C0FBA9C318CA609700BA97F3 /* DocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentViewController.m; sourceTree = "<group>"; };
 		C0FBA9C818CA610000BA97F3 /* GuideDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideDocument.h; sourceTree = "<group>"; };
 		C0FBA9C918CA610000BA97F3 /* GuideDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideDocument.m; sourceTree = "<group>"; };
 		C0FBA9CB18CA610B00BA97F3 /* FileExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileExtension.h; sourceTree = "<group>"; };
@@ -175,9 +175,9 @@
 		C0FBA9C618CA60CA00BA97F3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C0C7065E18FD6960007F310E /* DocumentViewController.m */,
 				C0F5423418FCAE6B00DA6DD1 /* DocumentViewControllerDelegate.h */,
 				C0FBA9C218CA609700BA97F3 /* DocumentViewController.h */,
-				C0FBA9C318CA609700BA97F3 /* DocumentViewController.m */,
 				C0FBA9BF18CA606100BA97F3 /* DocumentsListTVC.h */,
 				C0FBA9C018CA606100BA97F3 /* DocumentsListTVC.m */,
 				C0FBA99318CA5FAA00BA97F3 /* GuidesLocalAppDelegate.h */,
@@ -298,8 +298,8 @@
 			files = (
 				C0FBA99118CA5FAA00BA97F3 /* main.m in Sources */,
 				C0FBA9CA18CA610000BA97F3 /* GuideDocument.m in Sources */,
-				C0FBA9C418CA609700BA97F3 /* DocumentViewController.m in Sources */,
 				C0FBA99518CA5FAA00BA97F3 /* GuidesLocalAppDelegate.m in Sources */,
+				C0C7065F18FD6960007F310E /* DocumentViewController.m in Sources */,
 				C0FBA9C118CA606100BA97F3 /* DocumentsListTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

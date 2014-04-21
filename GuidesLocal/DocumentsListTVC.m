@@ -117,6 +117,21 @@
         selector:@selector(preferredContentSizeChanged:)
         name:UIContentSizeCategoryDidChangeNotification
         object:nil ];
+    
+    // sign up to get a notification if going into the background
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(goingToBackground:)
+     name:UIApplicationDidEnterBackgroundNotification
+     object:nil];
+    
+    // sign up to get a notification if going inactive
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(goingToBackground:)
+     name:UIApplicationWillResignActiveNotification
+     object:nil];
+
     [self refresh];
     
 }
@@ -147,6 +162,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)goingToBackground:(NSNotification *)notification {
+    if (self.isEditing) {
+        self.Editing = NO;
+    }
+}
+
 
 - (NSURL *) createURLForNewDocument
 {
